@@ -91,4 +91,5 @@ node default {
 
   # my stuff
   include chrome
+  include macvim
 }

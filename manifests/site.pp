@@ -92,4 +92,7 @@ node default {
   # my stuff
   include chrome
   include macvim
+  include docker
+  include coudapp
+  include onepassword
 }

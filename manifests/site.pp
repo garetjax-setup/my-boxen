@@ -90,9 +90,25 @@ node default {
   }
 
   # my stuff
-  include chrome
-  include macvim
-  include docker
-  include cloudapp
   include onepassword
+  include cloudapp
+  include chrome
+  include docker
+  include macvim
+  include fluid
+  include hipchat
+  include skype
+  include dropbox
+  include firefox
+  include omnigraffle
+  include dash
+  include pgadmin3
+  include nmap
+  include dockutil
+  #include osxfuse
+  include sequel_pro
+  include zsh
+  include harvest
+  include googledrive
+  include teamviewer
 }

@@ -11,6 +11,7 @@ class people::garetjax {
   include transmit
   #include utorrent
   include divvy
+  include iterm2::dev
 
   # My config
   osx::recovery_message { 'If this Mac is found, please call +41 79 229 39 88': }
@@ -39,5 +40,99 @@ class people::garetjax {
 
   class { 'osx::global::key_repeat_rate':
     rate => 2
+  }
+
+  # Dock setup
+  include dockutil
+
+  #dockutil::item { 'Add Calendar':
+  #  item     => '/Applications/iTerm.app',
+  #  label    => 'iTerm',
+  #  action   => 'add',
+  #  position => 1,
+  #}
+
+  #dockutil::item { 'Add NetNewsWire':
+  #  item     => '/Applications/iTerm.app',
+  #  label    => 'iTerm',
+  #  action   => 'add',
+  #  position => 2,
+  #}
+
+  dockutil::item { 'Add Chrome':
+    item     => '/Applications/Chrome.app',
+    label    => 'Chrome',
+    action   => 'add',
+    position => 3,
+  }
+
+  #dockutil::item { 'Add Adium':
+  #  item     => '/Applications/iTerm.app',
+  #  label    => 'iTerm',
+  #  action   => 'add',
+  #  position => 4,
+  #}
+
+  dockutil::item { 'Add iTerm':
+    item     => '/Applications/iTerm.app',
+    label    => 'iTerm',
+    action   => 'add',
+    position => 5,
+  }
+
+  dockutil::item { 'Add Colloquy':
+    item     => '/Applications/Colloquy.app',
+    label    => 'Colloquy',
+    action   => 'add',
+    position => 6,
+  }
+
+  dockutil::item { 'Add HipChat':
+    item     => '/Applications/HipChat.app',
+    label    => 'HipChat',
+    action   => 'add',
+    position => 7,
+  }
+
+  dockutil::item { 'Add Skype':
+    item     => '/Applications/Skype.app',
+    label    => 'Skype',
+    action   => 'add',
+    position => 8,
+  }
+
+  dockutil::item { 'Add Twitter':
+    item     => '/Applications/Twitter.app',
+    label    => 'Twitter',
+    action   => 'add',
+    position => 9,
+  }
+
+  #dockutil::item { 'Add Visual Paradigm':
+  #  item     => '/Applications/iTerm.app',
+  #  label    => 'iTerm',
+  #  action   => 'add',
+  #  position => 10,
+  #}
+
+  dockutil::item { 'Add applications folder':
+    item     => '/Applications',
+    label    => 'Apps',
+    action   => 'add',
+    position => 11,
+  }
+
+  dockutil::item { 'Add documents folder':
+    item     => '/Users/garetjax/Documents',
+    label    => 'Docs',
+    action   => 'add',
+    position => 12,
+  }
+
+  dockutil::item { 'Add downloads folder':
+    item     => '/Users/garetjax/Downloads',
+    label    => 'Downloads',
+    action   => 'add',
+    position => 13,
   }
 }

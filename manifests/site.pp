@@ -93,6 +93,6 @@ node default {
   include chrome
   include macvim
   include docker
-  include coudapp
+  include cloudapp
   include onepassword
 }

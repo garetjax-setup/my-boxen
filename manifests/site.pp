@@ -111,4 +111,5 @@ node default {
   include harvest
   include googledrive
   include teamviewer
+  include crashplan
 }

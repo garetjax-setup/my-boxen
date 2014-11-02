@@ -4,7 +4,7 @@ class people::garetjax {
   # My apps
   include colloquy
   include viscosity
-  include keyremap4macbook
+  include karabiner
   include authy
   include bartender
   include flux
@@ -42,53 +42,75 @@ class people::garetjax {
     rate => 2
   }
 
+  # My dotfiles
+  $dotfiles = "${boxen::config::srcdir}/dotfiles"
+
+  repository { $dotfiles:
+    source => 'garetjax-setup/dotfiles',
+    ensure => 'origin/HEAD',
+    force  => true,
+  }
+
+  file { "/Users/${::boxen_user}/.rcrc":
+    content => "DOTFILES_DIRS=\"~/.dotfiles ${boxen::config::srcdir}/dotfiles\"",
+  }
+
+  exec { 'install dotfiles':
+    provider => shell,
+    # TODO: Install rcm using boxen!
+    command  => 'rcup',
+    require  => Repository[$dotfiles],
+    subscribe => Repository[$dotfiles],
+  }
+
   # Dock setup
   include dockutil
 
-  dockutil::item { 'Remove Launchpad',
-    label  => 'Launchpad',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Mail',
-    label  => 'Mail',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Contacts',
-    label  => 'Contacts',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Calendar',
-    label  => 'Calendar',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Notes',
-    label  => 'Notes',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Reminders',
-    label  => 'Reminders',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove Maps',
+  #dockutil::item { 'Remove Launchpad':
+  #  label  => 'Launchpad',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove Mail':
+  #  label  => 'Mail',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove Contacts':
+  #  label  => 'Contacts',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove Calendar':
+  #  label  => 'Calendar',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove Notes':
+  #  label  => 'Notes',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove Reminders':
+  #  label  => 'Reminders',
+  #  action => 'remove',
+  #}
+  dockutil::item { 'Remove Maps':
     label  => 'Maps',
+    item   => '/Applications/Maps.app',
     action => 'remove',
   }
-  dockutil::item { 'Remove Messages',
-    label  => 'Messages',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove FaceTime',
-    label  => 'FaceTime',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove App Store',
-    label  => 'App Store',
-    action => 'remove',
-  }
-  dockutil::item { 'Remove System Preferences',
-    label  => 'System Preferences',
-    action => 'remove',
-  }
+  #dockutil::item { 'Remove Messages':
+  #  label  => 'Messages',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove FaceTime':
+  #  label  => 'FaceTime',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove App Store':
+  #  label  => 'App Store',
+  #  action => 'remove',
+  #}
+  #dockutil::item { 'Remove System Preferences':
+  #  label  => 'System Preferences',
+  #  action => 'remove',
+  #}
 
   #dockutil::item { 'Add Calendar':
   #  item     => '/Applications/iTerm.app',

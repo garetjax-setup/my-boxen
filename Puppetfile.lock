@@ -104,14 +104,14 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-virtualbox
-  specs:
-    virtualbox (1.0.9)
-
-GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
+
+GITHUBTARBALL
+  remote: garetjax-setup/puppet-virtualbox
+  specs:
+    virtualbox (1.0.14)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -153,6 +153,6 @@ DEPENDENCIES
   ruby (= 8.1.4)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
-  virtualbox (>= 0)
+  virtualbox (= 1.0.14)
   xquartz (= 1.2.1)
 

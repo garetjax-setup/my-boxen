@@ -56,7 +56,9 @@ class people::garetjax {
   }
 
   file { '/etc/paths.d/20-boxen':
-    content => "/opt/boxen/homebrew/bin\n"
+    content => "/opt/boxen/homebrew/bin\n",
+    owner   => 'root',
+    group   => 'wheel',
   }
 
   exec { 'install dotfiles':

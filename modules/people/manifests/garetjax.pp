@@ -46,20 +46,24 @@ class people::garetjax {
   $dotfiles = "${boxen::config::srcdir}/dotfiles"
 
   repository { $dotfiles:
-    source => 'garetjax-setup/dotfiles',
     ensure => 'origin/HEAD',
+    source => 'garetjax-setup/dotfiles',
     force  => true,
   }
 
   file { "/Users/${::boxen_user}/.rcrc":
-    content => "DOTFILES_DIRS=\"~/.dotfiles ${boxen::config::srcdir}/dotfiles\"",
+    content => "DOTFILES_DIRS=\"~/.dotfiles ${boxen::config::srcdir}/dotfiles\"\n",
+  }
+
+  file { '/etc/paths.d/20-boxen':
+    content => "/opt/boxen/homebrew/bin\n"
   }
 
   exec { 'install dotfiles':
-    provider => shell,
     # TODO: Install rcm using boxen!
-    command  => 'rcup',
-    require  => Repository[$dotfiles],
+    provider  => shell,
+    command   => 'rcup',
+    require   => Repository[$dotfiles],
     subscribe => Repository[$dotfiles],
   }
 

@@ -45,6 +45,51 @@ class people::garetjax {
   # Dock setup
   include dockutil
 
+  dockutil::item { 'Remove Launchpad',
+    label  => 'Launchpad',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Mail',
+    label  => 'Mail',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Contacts',
+    label  => 'Contacts',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Calendar',
+    label  => 'Calendar',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Notes',
+    label  => 'Notes',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Reminders',
+    label  => 'Reminders',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Maps',
+    label  => 'Maps',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove Messages',
+    label  => 'Messages',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove FaceTime',
+    label  => 'FaceTime',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove App Store',
+    label  => 'App Store',
+    action => 'remove',
+  }
+  dockutil::item { 'Remove System Preferences',
+    label  => 'System Preferences',
+    action => 'remove',
+  }
+
   #dockutil::item { 'Add Calendar':
   #  item     => '/Applications/iTerm.app',
   #  label    => 'iTerm',
@@ -60,7 +105,7 @@ class people::garetjax {
   #}
 
   dockutil::item { 'Add Chrome':
-    item     => '/Applications/Chrome.app',
+    item     => '/Applications/Google Chrome.app',
     label    => 'Chrome',
     action   => 'add',
     position => 3,

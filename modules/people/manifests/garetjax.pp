@@ -10,7 +10,6 @@ class people::garetjax {
   include flux
   include transmit
   #include utorrent
-  include divvy
   include iterm2::dev
 
   # My config
@@ -68,6 +67,18 @@ class people::garetjax {
     require   => Repository[$dotfiles],
     subscribe => Repository[$dotfiles],
   }
+
+  # Git config
+  git::config::global { 'core.preloadindex': value => true}
+  git::config::global { 'user.email': value => 'jonathan@stoppani.name'}
+  git::config::global { 'user.name': value => 'Jonathan Stoppani'}
+  git::config::global { 'alias.s': value => 'status'}
+  git::config::global { 'alias.ci': value => 'commit'}
+  git::config::global { 'alias.co': value => 'checkout'}
+  git::config::global { 'alias.st': value => 'status'}
+  git::config::global { 'alias.br': value => 'branch'}
+  git::config::global { 'alias.hist': value => 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'}
+  git::config::global { 'push.default': value => 'current'}
 
   # Dock setup
   include dockutil

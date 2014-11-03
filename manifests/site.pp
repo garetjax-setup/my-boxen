@@ -112,4 +112,5 @@ node default {
   include googledrive
   include teamviewer
   include crashplan
+  include python
 }

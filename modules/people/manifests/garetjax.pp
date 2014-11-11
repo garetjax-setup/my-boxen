@@ -77,7 +77,7 @@ class people::garetjax {
   git::config::global { 'alias.co': value => 'checkout'}
   git::config::global { 'alias.st': value => 'status'}
   git::config::global { 'alias.br': value => 'branch'}
-  git::config::global { 'alias.hist': value => 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'}
+  git::config::global { 'alias.hist': value => 'log --pretty=format:\'%h %ad | %s%d [%an]\' --graph --date=short'}
   git::config::global { 'push.default': value => 'current'}
 
   # Dock setup
